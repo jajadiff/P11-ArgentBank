@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
+import logUser from "./logUser";
 
-const authReducer = createSlice({
-  name: "log",
+const rootReducer = combineReducers({
+  log: logUser,
 });
 
-export default authReducer;
+export default rootReducer;
