@@ -3,6 +3,7 @@ import { useState } from "react";
 // Redux
 import { useDispatch } from "react-redux";
 import { login } from "./../../reducers/logUser";
+import { setUserProfile } from "../../reducers/dataUser";
 // Api
 import axios from "axios";
 //React router dom
@@ -41,6 +42,27 @@ const FormUser = () => {
       dispatch(login({ token }));
       // Redirection Home
       navigate("/");
+
+      try {
+        const responseUser = await axios.post(
+          "http://localhost:3001/api/v1/user/profile",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              accept: "application/json",
+            },
+          }
+        );
+
+        const profileUser = responseUser.data.body;
+
+        console.log(profileUser);
+
+        dispatch(setUserProfile(profileUser));
+      } catch (error) {
+        console.error(error);
+      }
     } catch (error) {
       console.error("Error :", error.message);
     }
