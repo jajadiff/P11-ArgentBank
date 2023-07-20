@@ -9,6 +9,7 @@ import { NavLink, Link } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
   const userVerification = useSelector((state) => state.log.token);
+  const firstName = useSelector((state) => state.user.firstName);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -28,7 +29,7 @@ const Header = () => {
         <div>
           <Link className="main-nav-item" to="/user">
             <i className="fa fa-user-circle"></i>
-            USERNAME
+            {firstName}
           </Link>
           <NavLink className="main-nav-item" to="/" onClick={handleLogout}>
             <i className="fa fa-sign-out"></i>
