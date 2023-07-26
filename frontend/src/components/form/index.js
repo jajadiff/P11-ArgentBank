@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+// Import style error
+import "./style.css";
 // Redux
 import { useDispatch } from "react-redux";
 import { login } from "./../../reducers/logUser";
@@ -12,6 +14,9 @@ import { useNavigate } from "react-router-dom";
 const FormUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // Affichage error
+  const [error, setError] = useState("");
+  const [serverError, setServerError] = useState("");
 
   //Dispatch
   const dispatch = useDispatch();
@@ -57,13 +62,22 @@ const FormUser = () => {
 
         const profileUser = responseUser.data.body;
 
-        console.log(profileUser);
+        console.log("Data API:", profileUser);
 
         dispatch(setUserProfile(profileUser));
       } catch (error) {
         console.error(error);
       }
     } catch (error) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          setError("Invalid email or password");
+        } else if (error.response.status === 500) {
+          setServerError("Internal Server Error");
+        }
+      } else {
+        setServerError("Network Error");
+      }
       console.error("Error :", error.message);
     }
   };
@@ -86,6 +100,7 @@ const FormUser = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="on"
         />
       </div>
 
@@ -93,7 +108,8 @@ const FormUser = () => {
         <input type="checkbox" id="remember-me" />
         <label htmlFor="remember-me">Remember me</label>
       </div>
-
+      {error && <p className="error-text">{error}</p>}
+      {serverError && <p className="error-text">{serverError}</p>}
       <button className="sign-in-button">Sign In</button>
     </form>
   );
