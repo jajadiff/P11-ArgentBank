@@ -1,5 +1,5 @@
 import React from "react";
-import Welcomeback from "./../../../src/components/welcomeback";
+import Welcomeback from "./../../../src/components/welcomeback/";
 
 const User = () => {
   return (
