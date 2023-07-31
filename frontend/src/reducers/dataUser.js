@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
-
-// const tokenLocalStorage = localStorage.getItem("token");
 
 const initialState = {
   email: "",
@@ -26,31 +23,17 @@ const dataUser = createSlice({
     setUserEdit: (state, action) => {
       state.userName = action.payload.userName;
     },
+    setUserReset: (state) => {
+      state.email = "";
+      state.firstName =  "";
+      state.lastName = "";
+      state.userName = null;
+      state.id =  "";
+      state.userNameEdit = "";
+    },
   },
 });
 
-// export const updateUserProfile = (userName) => (dispatch) => {
-//   axios
-//     .put(
-//       "http://localhost:3001/api/v1/user/profile",
-//       {
-//         userName: userName,
-//       },
-//       {
-//         headers: {
-//           Authorization: `Bearer ${tokenLocalStorage}`,
-//         },
-//       }
-//     )
-//     .then((response) => {
-//       console.log("Username update");
-//       dispatch(setUserEdit({ userName }));
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// };
-
-export const { setUserProfile, setUserEdit } = dataUser.actions;
+export const { setUserProfile, setUserEdit, setUserReset } = dataUser.actions;
 
 export default dataUser.reducer;

@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/img/logo.png";
 //Redux
 import { logout } from "./../../reducers/logUser";
+import { setUserReset } from "../../reducers/dataUser";
 import { useDispatch, useSelector } from "react-redux";
 // Router
 import { NavLink, Link } from "react-router-dom";
@@ -14,6 +15,7 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
+    dispatch(setUserReset());
   };
   return (
     <nav className="main-nav">
