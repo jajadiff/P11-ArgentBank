@@ -58,8 +58,7 @@ const Welcomeback = () => {
         }
       );
       const responseData = response.data;
-      // console.log("responsedata", responseData);
-      console.log("Username update");
+      console.log("Username update", responseData.status);
       dispatch(setUserEdit({ userName }));
     } catch (error) {
       console.error("Error updating username:", error);
