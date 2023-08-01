@@ -40,8 +40,8 @@ const FormUser = () => {
       const token = response.data.body.token;
 
       //Supprimer ici a la fin du projet
-      console.log("data api :", response.data);
-      console.log("Token :", token);
+      // console.log("data api :", response.data);
+      // console.log("Token :", token);
       //
 
       dispatch(login({ token }));
@@ -62,7 +62,7 @@ const FormUser = () => {
 
         const profileUser = responseUser.data.body;
 
-        console.log("Data API:", profileUser);
+        // console.log("Data API:", profileUser);
 
         dispatch(setUserProfile(profileUser));
       } catch (error) {

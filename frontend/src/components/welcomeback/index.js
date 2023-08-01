@@ -14,9 +14,9 @@ const Welcomeback = () => {
   const dispatch = useDispatch();
 
   const token = useSelector((state) => state.log.token);
-  console.log("token verif:", token);
-  console.log("Type of token:", typeof token);
-  console.log("Token:", token);
+  // console.log("token verif:", token);
+  // console.log("Type of token:", typeof token);
+  // console.log("Token:", token);
   function toggleOpen() {
     setIsOpen(!isOpen);
   }
@@ -35,7 +35,7 @@ const Welcomeback = () => {
 
   // console.log(token);
 
-  console.log(data.firstName, "=", data.lastName, "=", data.userName);
+  // console.log(data.firstName, "=", data.lastName, "=", data.userName);
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
@@ -58,7 +58,7 @@ const Welcomeback = () => {
         }
       );
       const responseData = response.data;
-      console.log("responsedata", responseData);
+      // console.log("responsedata", responseData);
       console.log("Username update");
       dispatch(setUserEdit({ userName }));
     } catch (error) {

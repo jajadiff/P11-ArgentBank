@@ -49,13 +49,3 @@ const Header = () => {
 };
 
 export default Header;
-
-/*     <Link className="main-nav-item" to="/user">
-          <i className="fa fa-user-circle"></i>
-        </Link>
-        <NavLink className="main-nav-item" to="/">
-          <i className="fa fa-sign-out"></i>
-          Sign Out
-        </NavLink>
-
-        */
