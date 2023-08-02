@@ -1,7 +1,7 @@
 import React from "react";
-import chat from "../../assets/img/icon-chat.png";
-import money from "../../assets/img/icon-money.png";
-import secure from "../../assets/img/icon-security.png";
+import chat from "../../assets/img/icon-chat.webp";
+import money from "../../assets/img/icon-money.webp";
+import secure from "../../assets/img/icon-security.webp";
 
 const Index = () => {
   return (
